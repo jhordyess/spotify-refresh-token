@@ -1,0 +1,26 @@
+{
+  "name": "spotify-refresh-token",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Jhordy Gavinchu <dev@jhordyess.com>",
+  "license": "MIT",
+  "keywords": [],
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.cjs",
+    "dev": "webpack --mode development && node dist/index.cjs",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

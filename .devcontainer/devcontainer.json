@@ -1,0 +1,14 @@
+{
+  "name": "spotify-refresh-token",
+  "image": "jhordyess/node",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+  "postCreateCommand": "sudo npm i npm@latest -g",
+  "remoteUser": "node"
+}
