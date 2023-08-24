@@ -12,7 +12,8 @@
     "dev": "webpack --watch --mode development",
     "build": "webpack --mode production",
     "format": "prettier --write .",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "express": "^4.18.2",
@@ -25,6 +26,7 @@
     "@typescript-eslint/parser": "^6.4.1",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.47.0",
+    "husky": "^8.0.3",
     "nodemon-webpack-plugin": "^4.8.1",
     "prettier": "^3.0.2",
     "ts-loader": "^9.4.4",
