@@ -2,9 +2,10 @@
 
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
+const NodemonPlugin = require("nodemon-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const NODE_ENV = process.env.NODE_ENV;
-const PORT = process.env.PORT;
 
 module.exports = {
   name: "spotify-refresh-token",
@@ -28,4 +29,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new NodemonPlugin({
+      script: "./dist/index.cjs",
+    }),
+    new Dotenv(),
+  ],
 };
