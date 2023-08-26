@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Spotify refresh token
+    script(src="https://cdn.tailwindcss.com/") 
+  body
+    main.container.mx-auto.p-4
+      h1.text-4xl.font-bold Spotify refresh token generator
+      p.text-lg Modify the .env file with your Spotify credentials, then select the desired scopes and click the button below to generate a refresh token.
+      form(method="GET" action="/login")
+        .mt-4
+          label.text-gray-700.text-sm.block.mb-2 Scopes
+          .flex.flex-wrap
+            each scope in scopes
+              .mr-4.mb-2
+                label.inline-flex.items-center
+                  input(type="checkbox" name="scopes" value=scope)
+                  span.ml-2= scope
+        .mt-4
+          button.bg-blue-500.text-white.font-bold.py-2.px-4.rounded
+            | Generate refresh token

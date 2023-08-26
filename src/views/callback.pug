@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Callback Page
+    script(src="https://cdn.tailwindcss.com/") 
+  body
+    if data.refresh_token
+      .flex.items-center.justify-center.min-h-screen.bg-gray-100
+        .bg-white.p-6.rounded-lg.shadow-md
+          h1.text-4xl.text-green-500.font-bold Success!
+          p.text-lg Your access token is #{data.access_token}
+          p.text-lg Your refresh token is #{data.refresh_token}
+          a.text-blue-500.mt-4(href="/") Go back to the homepage
+    else
+      .flex.items-center.justify-center.min-h-screen.bg-gray-100
+        .bg-white.p-6.rounded-lg.shadow-md
+          h1.text-4xl.text-red-500.font-bold Error 500
+          p.text-lg An internal server error occurred. We apologize for the inconvenience.
+          a.text-blue-500.mt-4(href="/") Go back to the homepage
+    
