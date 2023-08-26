@@ -9,13 +9,16 @@ const NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
   name: 'spotify-refresh-token',
-  entry: path.join(__dirname, 'src', 'index.ts'),
+  entry: path.join(__dirname, 'src', 'main.ts'),
   target: 'node',
   mode: NODE_ENV,
   externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.cjs'
+    filename: 'index.cjs',
+    library: {
+      type: 'commonjs'
+    }
   },
   resolve: {
     extensions: ['.ts']
