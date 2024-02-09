@@ -1,5 +1,3 @@
-import callbackRouter from './callbackRouter'
-import homeRouter from './homeRouter'
-import loginRouter from './loginRouter'
-
-export { callbackRouter, homeRouter, loginRouter }
+export { default as callbackRouter } from './callbackRouter'
+export { default as homeRouter } from './homeRouter'
+export { default as loginRouter } from './loginRouter'
