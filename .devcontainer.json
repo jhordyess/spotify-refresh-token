@@ -1,6 +1,6 @@
 {
   "name": "spotify-refresh-token",
-  "image": "jhordyess/node",
+  "image": "jhordyess/node:18",
   "customizations": {
     "vscode": {
       "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
@@ -9,6 +9,6 @@
       }
     }
   },
-  "postCreateCommand": "sudo npm i npm@latest -g",
+  "postCreateCommand": "sudo npm i npm -g && yarn",
   "remoteUser": "node"
 }
