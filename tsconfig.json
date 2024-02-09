@@ -12,7 +12,12 @@
     // Type Checking
     "strict": true,
     "noImplicitAny": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+
+    // Paths
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*"]
+  "exclude": ["node_modules", "dist"]
 }
