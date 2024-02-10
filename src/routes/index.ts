@@ -1,3 +1,14 @@
-export { default as callbackRouter } from './callbackRouter'
-export { default as homeRouter } from './homeRouter'
-export { default as loginRouter } from './loginRouter'
+import { Router } from 'express'
+import { callbackCheck, loginCheck } from '@/routes/validations'
+import { callback, home, login } from '@/controllers'
+import { withValidation } from '@/middlewares/requestValidator'
+
+const router = Router()
+
+router.get('/', home)
+
+router.get('/login', ...withValidation(loginCheck, login))
+
+router.get('/callback', ...withValidation(callbackCheck, callback))
+
+export default router
