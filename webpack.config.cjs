@@ -9,19 +9,22 @@ const NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
   name: 'spotify-refresh-token',
-  entry: path.join(__dirname, 'src', 'main.ts'),
+  entry: path.resolve('src', 'index.ts'),
   target: 'node',
   mode: NODE_ENV,
   externals: [nodeExternals()],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('dist'),
     filename: 'index.cjs',
     library: {
       type: 'commonjs'
     }
   },
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts'],
+    alias: {
+      '@': path.resolve('src')
+    }
   },
   module: {
     rules: [
@@ -34,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new NodemonPlugin({
-      script: './dist/index.cjs'
+      script: path.resolve('dist', 'index.cjs')
     }),
     new Dotenv()
   ]
