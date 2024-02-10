@@ -1,5 +1,3 @@
-//TODO Improve using better ways to handle this
-
 let tempAuthCode: string | undefined
 
 export const checkAuthCode = (code: string) => {
