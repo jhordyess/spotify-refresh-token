@@ -2,9 +2,9 @@
 
 yarn init -y && npm pkg delete scripts.test
 
-yarn add express pug morgan swagger-ui-express express-validator
+yarn add express pug morgan express-validator
 
-yarn add -D typescript ts-loader @types/node @types/express @types/pug @types/morgan @types/swagger-ui-express
+yarn add -D typescript ts-loader @types/node @types/express @types/pug @types/morgan
 yarn add -D webpack webpack-cli webpack-node-externals nodemon-webpack-plugin dotenv-webpack
 
 yarn add -D prettier && touch .prettierrc && yarn prettier --write .
