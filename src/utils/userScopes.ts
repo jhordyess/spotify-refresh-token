@@ -1,3 +1,5 @@
+// Source: https://developer.spotify.com/documentation/web-api/concepts/scopes
+
 export const userScopes: string[] = [
   'user-read-private',
   'user-read-email',
