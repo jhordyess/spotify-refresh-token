@@ -9,6 +9,5 @@
       }
     }
   },
-  "postCreateCommand": "sudo npm i npm -g && yarn",
-  "remoteUser": "node"
+  "postCreateCommand": "sudo npm i npm -g && yarn"
 }
