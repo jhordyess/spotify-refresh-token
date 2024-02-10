@@ -1,3 +1,4 @@
+import { userScopes } from '@/utils/userScopes'
 import { query } from 'express-validator'
 
 export type callbackReq = {
@@ -24,16 +25,32 @@ export const callbackCheck = [
 
 export type loginReq = {
   query: {
-    scopes: Array<string>
+    scopes: string
   }
 }
 
 export const loginCheck = query('scopes')
   .notEmpty()
   .withMessage('Scopes is not defined')
-  .isArray({
-    min: 1
+  .custom(scopes => {
+    if (Array.isArray(scopes)) {
+      return scopes.every(scope => userScopes.includes(scope))
+    } else if (typeof scopes === 'string') {
+      return userScopes.includes(scopes)
+    } else {
+      throw new Error('Not valid')
+    }
   })
-  .withMessage('Scopes is not an valid array')
-  .toArray()
-//TODO add validate of string array and exists in 'userScopes'
+  .withMessage('Scopes is not valid')
+  .customSanitizer(scopes => {
+    if (Array.isArray(scopes)) {
+      return scopes.join(' ')
+    } else if (typeof scopes === 'string') {
+      return scopes
+    } else {
+      throw new Error("Can't sanitize scope")
+    }
+  })
+  .isString()
+  .withMessage('Scopes is not valid')
+  .escape()
