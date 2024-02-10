@@ -7,7 +7,9 @@ import { userScopes as scopes } from '@/utils/userScopes'
 
 const spotifyTokenURL = 'https://accounts.spotify.com/api/token'
 const spotifyAuthorizationURL = 'https://accounts.spotify.com/authorize'
-const { spotifyClientID, spotifyClientSecret, spotifyRedirectURI } = process.env
+const spotifyClientID = process.env.SPOTIFY_CLIENT_ID
+const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET
+const spotifyRedirectURI = process.env.SPOTIFY_REDIRECT_URI
 
 export const home = (_: Request, res: Response, next: NextFunction) => {
   try {
@@ -31,7 +33,7 @@ export const login = (req: Request & loginReq, res: Response, next: NextFunction
     const authorizationParams = new URLSearchParams({
       response_type: 'code',
       client_id: spotifyClientID,
-      scope: scopes.join(' '),
+      scope: scopes,
       redirect_uri: spotifyRedirectURI,
       state: authCode
     })
